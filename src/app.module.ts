@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule } from '@nestjs/config';
 import { SkillsModule } from './skills/skills.module';
+import { ProjectsDetailsModule } from './projects-details/projects-details.module';
 
 @Module({
   imports: [
@@ -14,7 +15,8 @@ import { SkillsModule } from './skills/skills.module';
     MongooseModule.forRoot(process.env.DB_URI, {
       connectionName: 'cats',
     }),
-    SkillsModule],
+    SkillsModule,
+    ProjectsDetailsModule],
 
   controllers: [AppController],
   providers: [AppService],
