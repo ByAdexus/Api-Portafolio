@@ -8,7 +8,7 @@ import { ProjectsDetail, ProjectsDetailDocument } from './schemas/projects-detai
 @Injectable()
 export class ProjectsDetailsService {
   constructor(
-    @InjectModel(ProjectsDetail.name) private projectsDetailModel: Model<ProjectsDetailDocument>,
+    @InjectModel(ProjectsDetail.name, 'cats') private projectsDetailModel: Model<ProjectsDetailDocument>,
   ) {}
 
   async create(createProjectsDetailDto: CreateProjectsDetailDto): Promise<ProjectsDetail> {
@@ -17,10 +17,7 @@ export class ProjectsDetailsService {
   }
 
   async findAll(): Promise<ProjectsDetail[]> {
-    const projects = await this.projectsDetailModel.find().exec();
-    console.log(projects);  // Agrega este console.log para verificar los datos
-    return projects;
-  }
+    return this.projectsDetailModel.find().exec();
   }
 
   async findOne(id: string): Promise<ProjectsDetail> {
@@ -32,6 +29,6 @@ export class ProjectsDetailsService {
   }
 
   async remove(id: string): Promise<any> {
-    return this.projectsDetailModel.findByIdAndRemove(id).exec();
+    return this.projectsDetailModel.findByIdAndDelete(id).exec();
   }
 }

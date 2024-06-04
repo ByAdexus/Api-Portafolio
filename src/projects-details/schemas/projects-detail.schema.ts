@@ -5,6 +5,7 @@ export type ProjectsDetailDocument = ProjectsDetail & Document;
 
 @Schema()
 export class ProjectsDetail {
+  
   @Prop({ required: true })
   name: string;
 

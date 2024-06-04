@@ -5,7 +5,9 @@ import { ProjectsDetailsController } from './projects-details.controller';
 import { ProjectsDetail, ProjectsDetailSchema } from './schemas/projects-detail.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: ProjectsDetail.name, schema: ProjectsDetailSchema }])],
+  imports: [
+    MongooseModule.forFeature([{ name: ProjectsDetail.name, schema: ProjectsDetailSchema }], 'cats')
+  ],
   controllers: [ProjectsDetailsController],
   providers: [ProjectsDetailsService],
 })

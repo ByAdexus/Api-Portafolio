@@ -16,8 +16,8 @@ import { ProjectsDetailsModule } from './projects-details/projects-details.modul
       connectionName: 'cats',
     }),
     SkillsModule,
-    ProjectsDetailsModule],
-
+    ProjectsDetailsModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
